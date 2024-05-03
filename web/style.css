@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 50px 0 40px 0;
+    color: aliceblue;
+}
+
+body{
+    background-color: rgb(27, 26, 26);
+    font-family: monospace;
+}
+
+.box, form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 250px;
+    height: 25px;
+    padding: 0 15px 0 15px;
+    border-radius: 2px;
+    border: none;
+}
+
+button {
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(255, 102, 0);
+    color: white;
+    transition-duration: 0.4s; 
+    cursor: pointer;
+}
+.botao:hover{
+    background-color: rgb(148, 63, 6);
+    color: white;
+}
