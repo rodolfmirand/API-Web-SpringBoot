@@ -2,6 +2,11 @@ package br.com.criandoapi.projeto.controller;
 
 import java.util.List;
 
+import javax.swing.text.StyledEditorKit.BoldAction;
+
+import org.apache.catalina.connector.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +40,16 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<Usuario> criarUsuario (@RequestBody Usuario usuario) {
         return ResponseEntity.status(201).body(usuarioService.criarUsuario(usuario));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Usuario> validarSenha(@RequestBody Usuario usuario) {
+        Boolean valid = usuarioService.validarSenha(usuario);
+        if (!valid) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        return ResponseEntity.status(200).build();
     }
 
     @PutMapping
